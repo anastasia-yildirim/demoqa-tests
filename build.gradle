@@ -11,8 +11,6 @@ dependencies {
             'com.codeborne:selenide:6.19.1', // лучше в начало
             "org.junit.jupiter:junit-jupiter:5.10.0", // куда-нибудь ближе к концу
             'org.slf4j:slf4j-simple:2.0.7' // от чего зависит, двойные или одинарные кавычки?
-
-
     )
 }
 
