@@ -14,6 +14,7 @@ public class AutomationPracticeFormTests {
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
+        Configuration.headless = true;
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager"; // чтоб не дожидаться, пока вся страница загрузится (баннеры и т.д.)
         Configuration.holdBrowserOpen = true;

@@ -13,9 +13,10 @@ public class TextBoxTests {
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
+        Configuration.holdBrowserOpen = true;
+        //Configuration.headless = true;
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager"; // чтоб не дожидаться, пока вся страница загрузится (баннеры и т.д.)
-        Configuration.holdBrowserOpen = true;
         Configuration.timeout = 5000; //default = 4000
     }
 
@@ -27,7 +28,7 @@ public class TextBoxTests {
         $("#userEmail").setValue("john.donn2384@email.com");
         $("#currentAddress").setValue("Random street 1");
         $("#permanentAddress").setValue("New street 13");
-        $("#submit").click();
+        $("#submit").scrollIntoView(true).click();
         //Assert
         $("#output #name").shouldHave(text("John Donn"));
         $("#output #email").shouldHave(text("john.donn2384@email.com"));
