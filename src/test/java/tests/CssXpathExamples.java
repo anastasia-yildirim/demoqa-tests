@@ -45,7 +45,7 @@ public class CssXpathExamples {
 
 
         $(by("name", "email")).setValue("1"); // другой вариант записи
-        $(byName("email")).setValue("1")); // другой вариант записи
+        $(byName("email")).setValue("1"); // другой вариант записи
         $x("//*[@name='email']").setValue("1"); // XPath
     }
 }
