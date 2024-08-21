@@ -11,16 +11,14 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
-
+    public final SelenideElement mobileInput = $("#userNumber");
     private final SelenideElement firstNameInput = $("#firstName"), lastNameInput = $("#lastName"),
-        emailInput = $("#userEmail"), mobileInput = $("#userNumber"),
-        currentAddressInput = $("#currentAddress"), genderInput = $("#genterWrapper"),
+        emailInput = $("#userEmail"), currentAddressInput = $("#currentAddress"),
+            genderInput = $("#genterWrapper"),
         dateOfBirthInput = $("#dateOfBirthInput"), subjectsInput = $("#subjectsInput"),
         hobbiesInput = $("#hobbiesWrapper"), uploadPictureInput = $("#uploadPicture"),
         stateCityInput = $("#stateCity-wrapper"), stateInput = $("#state"),
-            cityInput = $("#city"), submitInput = $("#submit"),
-            modalOutput = $(".modal-dialog"),
-            modalTitle = $("#example-modal-sizes-title-lg");
+            cityInput = $("#city"), submitInput = $("#submit");
 
     CalendarComponent calendarComponent = new CalendarComponent();
     ModalOutputComponent modalOutputComponent = new ModalOutputComponent();
@@ -111,25 +109,5 @@ public class RegistrationPage {
 
     public void submitForm() {
         submitInput.click();
-    }
-
-    public RegistrationPage checkResultPage (String value) {
-        modalOutput.should(appear);
-        modalTitle.shouldHave(text(value));
-
-        return this;
-    }
-
-    public RegistrationPage checkResultData(String key, String value) {
-        modalOutputComponent.checkResultData(key, value);
-
-        return this;
-    }
-
-    public void checkUnsuccessfulValidation(String fieldName) {
-        if (fieldName.equals("Mobile")) {
-            mobileInput.shouldHave(attribute("required"));
-        }
-        modalOutput.shouldNot(appear);
     }
 }
