@@ -13,13 +13,13 @@ public class TextBoxTests extends TestBase {
         //Act
         textBoxPage.openPage()
                 .removeBanners()
-                .setUserName("Lena")
+                .setFullName("Lena")
                 .setEmail("lena2384@email.com")
                 .setCurrentAddress("Some street 1")
                 .setPermanentAddress("Another street 1")
                 .submitForm();
         //Assert
-        textBoxPage.checkResultUserName("Lena")
+        textBoxPage.checkResultFullName("Lena")
                 .checkResultEmail("lena2384@email.com")
                 .checkResultCurrentAddress("Some street 1")
                 .checkResultPermanentAddress("Another street 1");

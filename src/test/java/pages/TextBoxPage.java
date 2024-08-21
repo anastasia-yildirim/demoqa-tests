@@ -37,7 +37,7 @@ public class TextBoxPage {
         return this;
     }
 
-    public TextBoxPage setUserName(String value) {
+    public TextBoxPage setFullName(String value) {
         userNameInput.setValue(value);
 
         return this;
@@ -65,7 +65,7 @@ public class TextBoxPage {
         submitInput.click();
     }
 
-    public TextBoxPage checkResultUserName(String value) {
+    public TextBoxPage checkResultFullName(String value) {
         userNameOutput.shouldHave(text(value));
 
         return this;
