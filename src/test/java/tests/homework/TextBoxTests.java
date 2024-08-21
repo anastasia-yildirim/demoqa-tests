@@ -12,6 +12,7 @@ public class TextBoxTests extends TestBase {
     void fillFormTest() {
         //Act
         textBoxPage.openPage()
+                .removeBanners()
                 .setUserName("Lena")
                 .setEmail("lena2384@email.com")
                 .setCurrentAddress("Some street 1")
