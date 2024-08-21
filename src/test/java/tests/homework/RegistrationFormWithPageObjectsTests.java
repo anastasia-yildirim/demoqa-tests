@@ -11,6 +11,7 @@ public class RegistrationFormWithPageObjectsTests extends TestBase {
     void successfulRegistrationWithMaximumFieldsTest() {
         //Act
         registrationPage.openPage()
+                .removeBanners()
                 .setFirstName("Lena")
                 .setLastName("Petrova")
                 .setEmail("lena2384@email.com")
