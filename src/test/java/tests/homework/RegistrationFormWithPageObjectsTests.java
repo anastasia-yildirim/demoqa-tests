@@ -62,7 +62,7 @@ public class RegistrationFormWithPageObjectsTests extends TestBase {
                 .setGender("Other")
                 .submitForm();
         //Assert
-        registrationPageChecks.checkMobileIsRequired("Mobile", registrationPage.mobileInput)
+        registrationPageChecks.checkMobileIsRequired(registrationPage.mobileInput)
                 .checkAbsenceOfModal();
     }
 }

@@ -26,10 +26,10 @@ public class RegistrationPageChecks {
         return this;
     }
 
-    public RegistrationPageChecks checkMobileIsRequired(String fieldName, SelenideElement mobileInput) {
-        if (fieldName.equals("Mobile")) {
+    public RegistrationPageChecks checkMobileIsRequired(SelenideElement mobileInput) {
+
             mobileInput.shouldHave(attribute("required"));
-        }
+
 
         return this;
     }
