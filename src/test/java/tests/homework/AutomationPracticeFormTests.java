@@ -1,10 +1,6 @@
 package tests.homework;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import java.io.File;
 
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
@@ -31,7 +27,8 @@ public class AutomationPracticeFormTests extends TestBase {
         $(".react-datepicker__day.react-datepicker__day--007:not(.react-datepicker__day--outside-month)").click();
         $("#subjectsInput").setValue("English").pressEnter();
         $("#hobbiesWrapper").$(byText("Reading")).click();
-        $("#uploadPicture").uploadFile(new File("src/test/resources/img/picture.PNG"));
+        // $("#uploadPicture").uploadFile(new File("src/test/resources/img/picture.PNG"));
+        $("#uploadPicture").uploadFromClasspath("img/picture.PNG");
         $("#currentAddress").setValue("Random street 1");
         //$(byText("State and City")).scrollTo();
         $("#state").click();
@@ -44,8 +41,14 @@ public class AutomationPracticeFormTests extends TestBase {
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         $$("td").filterBy(text("Student Name")).first().sibling(0).shouldHave(text("Lena Petrova"));
         $$("td").filterBy(text("Student Email")).first().sibling(0).shouldHave(text("lena2384@email.com"));
+        $$("td").filterBy(text("Gender")).first().sibling(0).shouldHave(text("Female"));
         $$("td").filterBy(text("Mobile")).first().sibling(0).shouldHave(text("1234567890"));
         $$("td").filterBy(text("Date of Birth")).first().sibling(0).shouldHave(text("07 January,1999"));
+        $$("td").filterBy(text("Subjects")).first().sibling(0).shouldHave(text("English"));
+        $$("td").filterBy(text("Hobbies")).first().sibling(0).shouldHave(text("Reading"));
+        $$("td").filterBy(text("Picture")).first().sibling(0).shouldHave(text("picture.PNG"));
+        $$("td").filterBy(text("Address")).first().sibling(0).shouldHave(text("Random street 1"));
         $$("td").filterBy(text("State and City")).first().sibling(0).shouldHave(text("NCR Delhi"));
+
     }
 }
