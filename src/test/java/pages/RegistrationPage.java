@@ -2,26 +2,24 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
-import pages.components.ModalOutputComponent;
 
 import java.io.File;
 
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
     public final SelenideElement mobileInput = $("#userNumber");
     private final SelenideElement firstNameInput = $("#firstName"), lastNameInput = $("#lastName"),
-        emailInput = $("#userEmail"), currentAddressInput = $("#currentAddress"),
+            emailInput = $("#userEmail"), currentAddressInput = $("#currentAddress"),
             genderInput = $("#genterWrapper"),
-        dateOfBirthInput = $("#dateOfBirthInput"), subjectsInput = $("#subjectsInput"),
-        hobbiesInput = $("#hobbiesWrapper"), uploadPictureInput = $("#uploadPicture"),
-        stateCityInput = $("#stateCity-wrapper"), stateInput = $("#state"),
+            dateOfBirthInput = $("#dateOfBirthInput"), subjectsInput = $("#subjectsInput"),
+            hobbiesInput = $("#hobbiesWrapper"), uploadPictureInput = $("#uploadPicture"),
+            stateCityInput = $("#stateCity-wrapper"), stateInput = $("#state"),
             cityInput = $("#city"), submitInput = $("#submit");
 
     CalendarComponent calendarComponent = new CalendarComponent();
-    ModalOutputComponent modalOutputComponent = new ModalOutputComponent();
 
     public RegistrationPage openPage() {
         open("/automation-practice-form");
