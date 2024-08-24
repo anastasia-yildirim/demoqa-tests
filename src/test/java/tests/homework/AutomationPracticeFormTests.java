@@ -27,7 +27,7 @@ public class AutomationPracticeFormTests extends TestBase {
         $(".react-datepicker__day.react-datepicker__day--007:not(.react-datepicker__day--outside-month)").click();
         $("#subjectsInput").setValue("English").pressEnter();
         $("#hobbiesWrapper").$(byText("Reading")).click();
-       // $("#uploadPicture").uploadFile(new File("src/test/resources/img/picture.PNG"));
+        // $("#uploadPicture").uploadFile(new File("src/test/resources/img/picture.PNG"));
         $("#uploadPicture").uploadFromClasspath("img/picture.PNG");
         $("#currentAddress").setValue("Random street 1");
         //$(byText("State and City")).scrollTo();
@@ -49,5 +49,6 @@ public class AutomationPracticeFormTests extends TestBase {
         $$("td").filterBy(text("Picture")).first().sibling(0).shouldHave(text("picture.PNG"));
         $$("td").filterBy(text("Address")).first().sibling(0).shouldHave(text("Random street 1"));
         $$("td").filterBy(text("State and City")).first().sibling(0).shouldHave(text("NCR Delhi"));
+
     }
 }

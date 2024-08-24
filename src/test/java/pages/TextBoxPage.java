@@ -6,7 +6,6 @@ import pages.components.ModalOutputComponent;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class TextBoxPage {
 
@@ -26,13 +25,18 @@ public class TextBoxPage {
     public TextBoxPage openPage() {
         open("/text-box");
         $(".text-center").shouldHave(text("Text Box"));
+
+        return this;
+    }
+
+    public TextBoxPage removeBanners() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
 
         return this;
     }
 
-    public TextBoxPage setUserName(String value) {
+    public TextBoxPage setFullName(String value) {
         userNameInput.setValue(value);
 
         return this;
@@ -60,7 +64,7 @@ public class TextBoxPage {
         submitInput.click();
     }
 
-    public TextBoxPage checkResultUserName(String value) {
+    public TextBoxPage checkResultFullName(String value) {
         userNameOutput.shouldHave(text(value));
 
         return this;
