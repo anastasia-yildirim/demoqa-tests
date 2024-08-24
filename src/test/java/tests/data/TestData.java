@@ -25,7 +25,7 @@ public class TestData {
 
     public static Faker faker = new Faker();
 
-    public static void prepareTestData() {
+    public void prepareTestData() {
         firstName = faker.name().firstName();
         lastName = faker.name().lastName();
         email = faker.internet().emailAddress();
