@@ -6,13 +6,11 @@ import pages.RegistrationPage;
 import pages.RegistrationPageChecks;
 import tests.data.TestData;
 
-import static tests.data.TestData.*;
-
 public class RegistrationFormWithPageObjectAndDataTests extends TestBase {
 
-    static RegistrationPage registrationPage = new RegistrationPage();
-    static RegistrationPageChecks registrationPageChecks = new RegistrationPageChecks();
-    static TestData testData = new TestData();
+    RegistrationPage registrationPage = new RegistrationPage();
+    RegistrationPageChecks registrationPageChecks = new RegistrationPageChecks();
+    TestData testData = new TestData();
 
     @BeforeEach
     void prepare() {
@@ -24,29 +22,29 @@ public class RegistrationFormWithPageObjectAndDataTests extends TestBase {
         //Act
         registrationPage.openPage()
                 .removeBanners()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setEmail(email)
-                .setGender(gender)
-                .setMobile(mobile)
-                .setDateOfBirth(day, month, year)
-                .setSubject(subject)
-                .setHobby(hobby)
-                .uploadPicture(picturePath)
-                .setCurrentAddress(currentAddress)
-                .setStateAndCity(state, city)
+                .setFirstName(testData.firstName)
+                .setLastName(testData.lastName)
+                .setEmail(testData.email)
+                .setGender(testData.gender)
+                .setMobile(testData.mobile)
+                .setDateOfBirth(testData.day, testData.month, testData.year)
+                .setSubject(testData.subject)
+                .setHobby(testData.hobby)
+                .uploadPicture(testData.picturePath)
+                .setCurrentAddress(testData.currentAddress)
+                .setStateAndCity(testData.state, testData.city)
                 .submitForm();
         //Assert
         registrationPageChecks.checkResultPage(registrationPageChecks.title)
-                .checkResultData(registrationPageChecks.studentName, firstName + " " + lastName)
-                .checkResultData(registrationPageChecks.email, email)
-                .checkResultData(registrationPageChecks.gender, gender)
-                .checkResultData(registrationPageChecks.mobile, mobile)
-                .checkResultData(registrationPageChecks.subjects, subject)
-                .checkResultData(registrationPageChecks.hobbies, hobby)
+                .checkResultData(registrationPageChecks.studentName, testData.firstName + " " + testData.lastName)
+                .checkResultData(registrationPageChecks.email, testData.email)
+                .checkResultData(registrationPageChecks.gender, testData.gender)
+                .checkResultData(registrationPageChecks.mobile, testData.mobile)
+                .checkResultData(registrationPageChecks.subjects, testData.subject)
+                .checkResultData(registrationPageChecks.hobbies, testData.hobby)
                 .checkResultData(registrationPageChecks.picture, "picture.PNG")
-                .checkResultData(registrationPageChecks.address, currentAddress)
-                .checkResultData(registrationPageChecks.dateOfBirth, day + " " + month + "," + year);
+                .checkResultData(registrationPageChecks.address, testData.currentAddress)
+                .checkResultData(registrationPageChecks.dateOfBirth, testData.day + " " + testData.month + "," + testData.year);
     }
 
     @Test
@@ -54,16 +52,16 @@ public class RegistrationFormWithPageObjectAndDataTests extends TestBase {
         //Act
         registrationPage.openPage()
                 .removeBanners()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setGender(gender)
-                .setMobile(mobile)
+                .setFirstName(testData.firstName)
+                .setLastName(testData.lastName)
+                .setGender(testData.gender)
+                .setMobile(testData.mobile)
                 .submitForm();
         //Assert
         registrationPageChecks.checkResultPage(registrationPageChecks.title)
-                .checkResultData(registrationPageChecks.studentName, firstName + " " + lastName)
-                .checkResultData(registrationPageChecks.mobile, mobile)
-                .checkResultData(registrationPageChecks.gender, gender);
+                .checkResultData(registrationPageChecks.studentName, testData.firstName + " " + testData.lastName)
+                .checkResultData(registrationPageChecks.mobile, testData.mobile)
+                .checkResultData(registrationPageChecks.gender, testData.gender);
     }
 
     @Test
@@ -71,9 +69,9 @@ public class RegistrationFormWithPageObjectAndDataTests extends TestBase {
         //Act
         registrationPage.openPage()
                 .removeBanners()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setGender(gender)
+                .setFirstName(testData.firstName)
+                .setLastName(testData.lastName)
+                .setGender(testData.gender)
                 .submitForm();
         //Assert
         registrationPageChecks.checkMobileIsRequired(registrationPage.mobileInput)
