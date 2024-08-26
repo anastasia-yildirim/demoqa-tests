@@ -1,14 +1,13 @@
 package tests.data;
 
 import com.github.javafaker.Faker;
-import org.junit.jupiter.api.BeforeEach;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class TestData {
 
-    public static String firstName,
+    public String firstName,
             lastName,
             email,
             gender,
@@ -23,7 +22,7 @@ public class TestData {
             state,
             city;
 
-    public static Faker faker = new Faker();
+    private final Faker faker = new Faker();
 
     public void prepareTestData() {
         firstName = faker.name().firstName();
