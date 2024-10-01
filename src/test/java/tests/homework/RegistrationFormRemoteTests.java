@@ -46,6 +46,7 @@ public class RegistrationFormRemoteTests extends TestBase {
                 .setHobby(testData.hobby)
                 .uploadPicture(testData.picturePath)
                 .setCurrentAddress(testData.currentAddress)
+                    .scrollToSubmitButton()
                 .setStateAndCity(testData.state, testData.city)
                 .submitForm();
         });
@@ -76,6 +77,7 @@ public class RegistrationFormRemoteTests extends TestBase {
                 .setLastName(testData.lastName)
                 .setGender(testData.gender)
                 .setMobile(testData.mobile)
+                            .scrollToSubmitButton()
                 .submitForm();
             });
         step("Проверить корректность введенных данных", () -> {
@@ -98,6 +100,7 @@ public class RegistrationFormRemoteTests extends TestBase {
         registrationPage.setFirstName(testData.firstName)
                 .setLastName(testData.lastName)
                 .setGender(testData.gender)
+                .scrollToSubmitButton()
                 .submitForm();
         });
         step("Убедиться, что регистрация не выполняется", () -> {
