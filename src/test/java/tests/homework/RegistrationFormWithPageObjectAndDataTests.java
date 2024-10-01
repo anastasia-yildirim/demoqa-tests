@@ -32,6 +32,7 @@ public class RegistrationFormWithPageObjectAndDataTests extends TestBase {
                 .setHobby(testData.hobby)
                 .uploadPicture(testData.picturePath)
                 .setCurrentAddress(testData.currentAddress)
+                .scrollToSubmitButton()
                 .setStateAndCity(testData.state, testData.city)
                 .submitForm();
         //Assert
@@ -56,6 +57,7 @@ public class RegistrationFormWithPageObjectAndDataTests extends TestBase {
                 .setLastName(testData.lastName)
                 .setGender(testData.gender)
                 .setMobile(testData.mobile)
+                .scrollToSubmitButton()
                 .submitForm();
         //Assert
         registrationPageChecks.checkResultPage(registrationPageChecks.title)
@@ -72,6 +74,7 @@ public class RegistrationFormWithPageObjectAndDataTests extends TestBase {
                 .setFirstName(testData.firstName)
                 .setLastName(testData.lastName)
                 .setGender(testData.gender)
+                .scrollToSubmitButton()
                 .submitForm();
         //Assert
         registrationPageChecks.checkMobileIsRequired(registrationPage.mobileInput)

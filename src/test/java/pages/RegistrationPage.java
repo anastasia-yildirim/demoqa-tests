@@ -105,6 +105,12 @@ public class RegistrationPage {
         return this;
     }
 
+    public RegistrationPage scrollToSubmitButton() {
+        submitInput.scrollTo();
+
+        return this;
+    }
+
     public void submitForm() {
         submitInput.click();
     }
